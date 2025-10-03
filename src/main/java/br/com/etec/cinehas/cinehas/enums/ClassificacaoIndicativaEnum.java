@@ -1,2 +1,10 @@
-package br.com.etec.cinehas.cinehas.enums;public enum ClassificacaoIndicativaEnum {
+package br.com.etec.cinehas.cinehas.enums;
+
+public enum ClassificacaoIndicativaEnum {
+    LIVRE,
+    A10,
+    A12,
+    A13,
+    A16,
+    A18;
 }

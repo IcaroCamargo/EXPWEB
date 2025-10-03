@@ -1,2 +1,6 @@
-package br.com.etec.cinehas.cinehas.entity;public class Ingresso {
+package br.com.etec.cinehas.cinehas.entity;
+
+public class Ingresso {
+    private Integer id;
+    private Double preco;
 }
