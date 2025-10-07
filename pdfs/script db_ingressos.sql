@@ -1,0 +1,49 @@
+create database db_ingressos;
+use db_ingressos;
+
+create table TBL_SALA(
+	ID_SALA INT NOT NULL PRIMARY KEY IDENTITY,
+	TX_NOME VARCHAR(60),
+	NR_PRECO float
+);
+
+insert into TBL_SALA values( 'sala1', 30.0);
+insert into TBL_SALA values( 'sala2', 20.0);
+insert into TBL_SALA values( 'salaXD', 40.0);
+select * from TBL_SALA;
+
+create table TBL_FILME(
+	ID_FILME bigint not null primary key identity,
+	TX_NOME varchar(60),
+	NR_DURACAO int,
+	TP_GENERO varchar(30),
+	TP_CLASSIFICACAO varchar(10),
+	NR_ANO int,
+	TX_CAPA varchar(100),
+	TX_DIRETOR varchar(60),
+	TX_ELENCO varchar(250),
+	TX_DESCRICAO varchar(250),
+	NR_AVALIACAO float,
+	NR_PRECO float
+);
+
+CREATE TABLE TBL_ASSENTO (
+    ID_ASSENTO INT PRIMARY KEY IDENTITY,
+    TX_FILEIRA VARCHAR(1) NOT NULL,
+    NR_POSICAO INT NOT NULL,
+    ID_SALA INT NOT NULL,
+    FOREIGN KEY (ID_SALA) REFERENCES TBL_SALA(ID_SALA)
+);
+
+CREATE TABLE TBL_SESSAO (
+    ID_SESSAO BIGINT PRIMARY KEY IDENTITY,
+    DT_DATA DATE NOT NULL,
+    HR_HORARIO TIME NOT NULL,
+    NR_PRECO FLOAT NOT NULL,
+    ID_SALA INT NOT NULL,
+    ID_FILME BIGINT NOT NULL,
+    FOREIGN KEY (ID_SALA) REFERENCES TBL_SALA(ID_SALA),
+    FOREIGN KEY (ID_FILME) REFERENCES TBL_FILME(ID_FILME)
+);
+
+SELECT * FROM TBL_SALA;
