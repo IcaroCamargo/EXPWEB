@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
+
 
 @Getter
 @Setter
@@ -18,5 +20,7 @@ public class Assento {
     private String fileira;
     @Column(name = "NR_POSICAO")
     private Integer posicao;
-    private Sala sala;
+    @OneToMany
+    @JoinColumn(name="ID_SALA")
+    private List<Sala> salas;
 }
